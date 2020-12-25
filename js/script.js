@@ -159,33 +159,6 @@ async function pushOrder() {
     setTimeout(function del3(){ baner.style.display='none'; baner.innerHTML="Товар додано в корзину"}, 1000);
 }
 
-window.onmouseover = function (event) {
-    let curentClassName = event.target.className;
-    let textArea = document.getElementsByClassName('functionInput');
-    if (window.location.hash !== '#createOrder' || curentClassName !== 'functionName'){return;}
-    let value = event.target.innerHTML;
-    switch (value){
-        case 'Hомер Телефону *':{retouchText(event.target, orderCase[0], textArea);break;}
-        case 'Емейл':{retouchText(event.target, orderCase[1], textArea);break;}
-        case 'ПІБ':{retouchText(event.target, orderCase[2], textArea);break;}
-        case 'Адреса *':{retouchText(event.target, orderCase[3], textArea);break;}
-        case 'Дата доставки *':{retouchText(event.target, orderCase[4], textArea);break;}
-        case 'Варіант оплати':{retouchText(event.target, orderCase[5], textArea);break;}
-        case 'Варіант оплати':{retouchText(event.target, orderCase[5], textArea);break;}
-        default: {break;}
-    }
-}
-
-window.addEventListener('mouseout', (event)=>{
-    let curentClassName = event.target.className;
-    let textArea = document.getElementsByClassName('functionInput');
-    if (window.location.hash !== '#createOrder' || curentClassName !== 'functionName'){return;}
-    let i=parseInt(event.target.id);
-    if ((textArea[i].value === orderCase[i])){
-        textArea[i].value='';
-    }
-})
-
 function addToOrder(target){
     let id = target.parentElement.firstChild.id;
     let baner = document.getElementById("resultBaner");
